@@ -52,6 +52,22 @@
       </tbody>
     </table>
 
+    <!-- 🔽 Dropdown moved here before buttons -->
+    <h3 style="margin-top:40px;">⚙️ Interactive Dropdown</h3>
+    <p>Select an option below:</p>
+
+    <!-- First Dropdown -->
+    <select id="firstDropdown" style="padding:8px; margin:10px 0;">
+      <option value="">-- Select an Option --</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+    </select>
+
+    <!-- Second Dropdown (hidden by default) -->
+    <select id="secondDropdown" style="padding:8px; margin:10px 0; display:none;">
+      <option value="">-- Select Action --</option>
+    </select>
+
     <h3 style="margin-top:30px;">🎯 Buttons Demo</h3>
     <button style="padding:10px 20px; margin:10px; background:#1abc9c; border:none; border-radius:5px; color:white; font-weight:bold;">Get Started</button>
     <button style="padding:10px 20px; margin:10px; background:#3498db; border:none; border-radius:5px; color:white; font-weight:bold;">Learn More</button>
@@ -71,5 +87,43 @@
   <footer>
     <p>© 2025 Demo Website. All rights reserved.</p>
   </footer>
+
+  <!-- Dropdown Logic -->
+  <script>
+    const firstDropdown = document.getElementById("firstDropdown");
+    const secondDropdown = document.getElementById("secondDropdown");
+
+    firstDropdown.addEventListener("change", function() {
+      // Reset second dropdown
+      secondDropdown.innerHTML = '<option value="">-- Select Action --</option>';
+      
+      if (this.value === "1") {
+        // Option 1 → Go to About
+        let opt = document.createElement("option");
+        opt.value = "about";
+        opt.text = "Go to About";
+        secondDropdown.appendChild(opt);
+        secondDropdown.style.display = "inline-block";
+      } else if (this.value === "2") {
+        // Option 2 → Go to Contact
+        let opt = document.createElement("option");
+        opt.value = "contact";
+        opt.text = "Go to Contact";
+        secondDropdown.appendChild(opt);
+        secondDropdown.style.display = "inline-block";
+      } else {
+        secondDropdown.style.display = "none";
+      }
+    });
+
+    // Redirect when second dropdown changes
+    secondDropdown.addEventListener("change", function() {
+      if (this.value === "about") {
+        window.location.href = "about.html";
+      } else if (this.value === "contact") {
+        window.location.href = "contact.html";
+      }
+    });
+  </script>
 </body>
 </html>
