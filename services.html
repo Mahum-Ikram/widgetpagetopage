@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Start of Zeacon Code -->
+  <script type="text/javascript" async="" id="zeacon-sdk"
+    src="https://licencetotest.com/sdk/correlator.js?api-key=c0988d6d-b45f-48f0-869a-54a4720eb41e"></script>
+  <!-- End of Zeacon Code -->
   <meta charset="UTF-8">
   <title>Services - Demo Site</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <header>
     <h1>Demo Website</h1>
@@ -25,7 +31,8 @@
 
     <h3>📊 Example Table</h3>
     <p>Here’s a sample pricing table for demonstration purposes:</p>
-    <table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse: collapse; text-align:center;">
+    <table border="1" cellpadding="10" cellspacing="0"
+      style="width:100%; border-collapse: collapse; text-align:center;">
       <thead style="background:#2c3e50; color:#fff;">
         <tr>
           <th>Plan</th>
@@ -69,13 +76,20 @@
     </select>
 
     <h3 style="margin-top:30px;">🎯 Buttons Demo</h3>
-    <button style="padding:10px 20px; margin:10px; background:#1abc9c; border:none; border-radius:5px; color:white; font-weight:bold;">Get Started</button>
-    <button style="padding:10px 20px; margin:10px; background:#3498db; border:none; border-radius:5px; color:white; font-weight:bold;">Learn More</button>
-    <button style="padding:10px 20px; margin:10px; background:#e74c3c; border:none; border-radius:5px; color:white; font-weight:bold;">Contact Sales</button>
+    <button
+      style="padding:10px 20px; margin:10px; background:#1abc9c; border:none; border-radius:5px; color:white; font-weight:bold;">Get
+      Started</button>
+    <button
+      style="padding:10px 20px; margin:10px; background:#3498db; border:none; border-radius:5px; color:white; font-weight:bold;">Learn
+      More</button>
+    <button
+      style="padding:10px 20px; margin:10px; background:#e74c3c; border:none; border-radius:5px; color:white; font-weight:bold;">Contact
+      Sales</button>
 
     <h3 style="margin-top:30px;">📈 Dummy Graph</h3>
     <p>This is a sample bar graph created with HTML & CSS:</p>
-    <div style="display:flex; align-items:flex-end; gap:15px; height:200px; margin-top:20px; padding:10px; border:1px solid #ccc; border-radius:8px;">
+    <div
+      style="display:flex; align-items:flex-end; gap:15px; height:200px; margin-top:20px; padding:10px; border:1px solid #ccc; border-radius:8px;">
       <div style="background:#1abc9c; width:40px; height:50px;"></div>
       <div style="background:#3498db; width:40px; height:120px;"></div>
       <div style="background:#9b59b6; width:40px; height:80px;"></div>
@@ -93,10 +107,10 @@
     const firstDropdown = document.getElementById("firstDropdown");
     const secondDropdown = document.getElementById("secondDropdown");
 
-    firstDropdown.addEventListener("change", function() {
+    firstDropdown.addEventListener("change", function () {
       // Reset second dropdown
       secondDropdown.innerHTML = '<option value="">-- Select Action --</option>';
-      
+
       if (this.value === "1") {
         // Option 1 → Go to About
         let opt = document.createElement("option");
@@ -117,7 +131,7 @@
     });
 
     // Redirect when second dropdown changes
-    secondDropdown.addEventListener("change", function() {
+    secondDropdown.addEventListener("change", function () {
       if (this.value === "about") {
         window.location.href = "about.html";
       } else if (this.value === "contact") {
@@ -126,4 +140,5 @@
     });
   </script>
 </body>
+
 </html>
