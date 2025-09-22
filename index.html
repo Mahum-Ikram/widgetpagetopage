@@ -3,12 +3,66 @@
 
 <head>
   <!-- Start of Zeacon Code -->
-  <script type="text/javascript" async="" id="zeacon-sdk"
+  <script type="text/javascript" async id="zeacon-sdk"
     src="https://licencetotest.com/sdk/correlator.js?api-key=c0988d6d-b45f-48f0-869a-54a4720eb41e"></script>
   <!-- End of Zeacon Code -->
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - Demo Site</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header,
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #f5f5f5;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    iframe {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ✅ Mobile adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      button {
+        width: 90%;
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -25,28 +79,20 @@
   <div class="container">
     <h2>Welcome to Our Demo Website</h2>
     <p>
-      This is a simple multi-page website created with HTML and CSS. The goal is to
-      demonstrate navigation between pages and how the URL changes accordingly.
-    </p>
-    <p>
-      Here you’ll find information about us, the services we offer, and ways to get
-      in touch. We’ve styled the website with a modern, clean design so you can use
-      it as a starter template for your own projects.
+      This is a simple multi-page website created with HTML and CSS.
     </p>
 
     <h3>🎥 Watch Our Intro Video</h3>
     <div style="margin-top:20px; text-align:center;">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Demo Video"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+        frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- New Button Section -->
+    <!-- Responsive Button -->
     <div style="margin-top: 30px; text-align: center;">
-      <button onclick="window.location.href='https://mahum-ikram.github.io/widgetpagetopage/contact.html'" 
-              style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Go to Contact US
+      <button onclick="window.location.href='https://mahum-ikram.github.io/widgetpagetopage/contact.html'"
+        style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Go to Contact Us
       </button>
     </div>
   </div>

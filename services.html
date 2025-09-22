@@ -3,12 +3,169 @@
 
 <head>
   <!-- Start of Zeacon Code -->
-  <script type="text/javascript" async="" id="zeacon-sdk"
+  <script type="text/javascript" async id="zeacon-sdk"
     src="https://licencetotest.com/sdk/correlator.js?api-key=c0988d6d-b45f-48f0-869a-54a4720eb41e"></script>
   <!-- End of Zeacon Code -->
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services - Demo Site</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header,
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #f5f5f5;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    thead {
+      background: #2c3e50;
+      color: white;
+    }
+
+    /* Buttons */
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn-green {
+      background: #1abc9c;
+    }
+
+    .btn-blue {
+      background: #3498db;
+    }
+
+    .btn-red {
+      background: #e74c3c;
+    }
+
+    /* Bar graph container */
+    .bar-graph {
+      display: flex;
+      align-items: flex-end;
+      gap: 15px;
+      height: 200px;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .bar-graph div {
+      width: 40px;
+      background: #3498db;
+      border-radius: 5px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+        width: 100%;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        text-align: left;
+      }
+
+      td::before {
+        font-weight: bold;
+        color: #333;
+      }
+
+      td:nth-of-type(1)::before {
+        content: "Plan: ";
+      }
+
+      td:nth-of-type(2)::before {
+        content: "Features: ";
+      }
+
+      td:nth-of-type(3)::before {
+        content: "Price: ";
+      }
+
+      .bar-graph {
+        height: 150px;
+        gap: 10px;
+      }
+
+      .bar-graph div {
+        width: 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -24,16 +181,11 @@
 
   <div class="container">
     <h2>Our Services</h2>
-    <p>
-      We provide a variety of services designed to help you learn, practice, and
-      showcase your web development skills.
-    </p>
+    <p>We provide a variety of services designed to help you learn, practice, and showcase your web development skills.</p>
 
     <h3>📊 Example Table</h3>
-    <p>Here’s a sample pricing table for demonstration purposes:</p>
-    <table border="1" cellpadding="10" cellspacing="0"
-      style="width:100%; border-collapse: collapse; text-align:center;">
-      <thead style="background:#2c3e50; color:#fff;">
+    <table>
+      <thead>
         <tr>
           <th>Plan</th>
           <th>Features</th>
@@ -46,7 +198,7 @@
           <td>Access to templates, Documentation</td>
           <td>$10/month</td>
         </tr>
-        <tr style="background:#f4f6f8;">
+        <tr>
           <td>Pro</td>
           <td>All Basic features + UI Kits</td>
           <td>$25/month</td>
@@ -59,41 +211,30 @@
       </tbody>
     </table>
 
-    <!-- 🔽 Dropdown moved here before buttons -->
-    <h3 style="margin-top:40px;">⚙️ Interactive Dropdown</h3>
-    <p>Select an option below:</p>
-
-    <!-- First Dropdown -->
-    <select id="firstDropdown" style="padding:8px; margin:10px 0;">
+    <h3 style="margin-top:30px;">⚙️ Interactive Dropdown</h3>
+    <select id="firstDropdown" style="padding:8px; margin:10px 0; width:100%;">
       <option value="">-- Select an Option --</option>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
     </select>
 
-    <!-- Second Dropdown (hidden by default) -->
-    <select id="secondDropdown" style="padding:8px; margin:10px 0; display:none;">
+    <select id="secondDropdown" style="padding:8px; margin:10px 0; width:100%; display:none;">
       <option value="">-- Select Action --</option>
     </select>
 
     <h3 style="margin-top:30px;">🎯 Buttons Demo</h3>
-    <button
-      style="padding:10px 20px; margin:10px; background:#1abc9c; border:none; border-radius:5px; color:white; font-weight:bold;">Get
-      Started</button>
-    <button
-      style="padding:10px 20px; margin:10px; background:#3498db; border:none; border-radius:5px; color:white; font-weight:bold;">Learn
-      More</button>
-    <button
-      style="padding:10px 20px; margin:10px; background:#e74c3c; border:none; border-radius:5px; color:white; font-weight:bold;">Contact
-      Sales</button>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+      <button class="btn-green">Get Started</button>
+      <button class="btn-blue">Learn More</button>
+      <button class="btn-red">Contact Sales</button>
+    </div>
 
     <h3 style="margin-top:30px;">📈 Dummy Graph</h3>
-    <p>This is a sample bar graph created with HTML & CSS:</p>
-    <div
-      style="display:flex; align-items:flex-end; gap:15px; height:200px; margin-top:20px; padding:10px; border:1px solid #ccc; border-radius:8px;">
-      <div style="background:#1abc9c; width:40px; height:50px;"></div>
-      <div style="background:#3498db; width:40px; height:120px;"></div>
-      <div style="background:#9b59b6; width:40px; height:80px;"></div>
-      <div style="background:#e67e22; width:40px; height:160px;"></div>
+    <div class="bar-graph">
+      <div style="height: 50px; background:#1abc9c;"></div>
+      <div style="height: 120px; background:#3498db;"></div>
+      <div style="height: 80px; background:#9b59b6;"></div>
+      <div style="height: 160px; background:#e67e22;"></div>
     </div>
     <p style="margin-top:10px;">(Bar graph showing sample service usage)</p>
   </div>
@@ -102,35 +243,30 @@
     <p>© 2025 Demo Website. All rights reserved.</p>
   </footer>
 
-  <!-- Dropdown Logic -->
   <script>
     const firstDropdown = document.getElementById("firstDropdown");
     const secondDropdown = document.getElementById("secondDropdown");
 
     firstDropdown.addEventListener("change", function () {
-      // Reset second dropdown
       secondDropdown.innerHTML = '<option value="">-- Select Action --</option>';
 
       if (this.value === "1") {
-        // Option 1 → Go to About
         let opt = document.createElement("option");
         opt.value = "about";
         opt.text = "Go to About";
         secondDropdown.appendChild(opt);
-        secondDropdown.style.display = "inline-block";
+        secondDropdown.style.display = "block";
       } else if (this.value === "2") {
-        // Option 2 → Go to Contact
         let opt = document.createElement("option");
         opt.value = "contact";
         opt.text = "Go to Contact";
         secondDropdown.appendChild(opt);
-        secondDropdown.style.display = "inline-block";
+        secondDropdown.style.display = "block";
       } else {
         secondDropdown.style.display = "none";
       }
     });
 
-    // Redirect when second dropdown changes
     secondDropdown.addEventListener("change", function () {
       if (this.value === "about") {
         window.location.href = "about.html";
