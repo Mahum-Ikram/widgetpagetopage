@@ -17,8 +17,7 @@
       font-family: Arial, sans-serif;
     }
 
-    header,
-    footer {
+    header, footer {
       text-align: center;
       padding: 10px;
       background: #f5f5f5;
@@ -27,7 +26,6 @@
     nav {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 15px;
     }
 
@@ -43,24 +41,6 @@
       padding: 15px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-
-    th,
-    td {
-      padding: 10px;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-
-    thead {
-      background: #2c3e50;
-      color: white;
-    }
-
     button {
       padding: 10px 15px;
       border: none;
@@ -70,66 +50,21 @@
       cursor: pointer;
     }
 
-    .btn-green {
-      background: #1abc9c;
-    }
-
     .btn-blue {
       background: #3498db;
     }
 
-    .btn-red {
-      background: #e74c3c;
-    }
-
-    .bar-graph {
-      display: flex;
-      align-items: flex-end;
-      gap: 15px;
-      height: 200px;
-      margin-top: 20px;
-      padding: 10px;
+    .blog-section {
+      margin-top: 40px;
+      padding: 15px;
       border: 1px solid #ccc;
       border-radius: 8px;
-    }
-
-    .bar-graph div {
-      width: 40px;
-      background: #3498db;
-      border-radius: 5px;
-    }
-
-    @media (max-width: 600px) {
-      table,
-      thead,
-      tbody,
-      th,
-      td,
-      tr {
-        display: block;
-        width: 100%;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tr {
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-      }
-
-      td {
-        display: flex;
-        justify-content: space-between;
-      }
     }
   </style>
 </head>
 
 <body>
+
   <header>
     <h1>Demo Website</h1>
     <nav>
@@ -142,68 +77,13 @@
 
   <div class="container">
     <h2>Our Services</h2>
-    <p>We provide a variety of services designed to help you learn, practice, and showcase your web development skills.</p>
+    <p>This page demonstrates URL manipulation on a static site.</p>
 
-    <h3>📊 Example Table</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Plan</th>
-          <th>Features</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Basic</td>
-          <td>Access to templates, Documentation</td>
-          <td>$10/month</td>
-        </tr>
-        <tr>
-          <td>Pro</td>
-          <td>All Basic features + UI Kits</td>
-          <td>$25/month</td>
-        </tr>
-        <tr>
-          <td>Enterprise</td>
-          <td>Custom Solutions, Dedicated Support</td>
-          <td>$99/month</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3 style="margin-top:30px;">⚙️ Interactive Dropdown</h3>
-    <select id="firstDropdown" style="padding:8px; margin:10px 0; width:100%;">
-      <option value="">-- Select an Option --</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-    </select>
-
-    <select id="secondDropdown" style="padding:8px; margin:10px 0; width:100%; display:none;">
-      <option value="">-- Select Action --</option>
-    </select>
-
-    <h3 style="margin-top:30px;">🎯 Buttons Demo</h3>
-    <div style="display:flex; flex-wrap:wrap; gap:10px;">
-      <button class="btn-green">Get Started</button>
-      <button class="btn-blue">Learn More</button>
-      <button class="btn-red">Contact Sales</button>
-    </div>
-
-    <!-- ✅ BLOG LINK SECTION -->
-    <h3 style="margin-top:30px;">📝 Blog</h3>
-    <p>Read our latest article:</p>
-
-    <a href="/blog/post-2">
-      <button class="btn-blue">Go to Blog Post 2</button>
-    </a>
-
-    <h3 style="margin-top:30px;">📈 Dummy Graph</h3>
-    <div class="bar-graph">
-      <div style="height:50px; background:#1abc9c;"></div>
-      <div style="height:120px; background:#3498db;"></div>
-      <div style="height:80px; background:#9b59b6;"></div>
-      <div style="height:160px; background:#e67e22;"></div>
+    <!-- ✅ BLOG URL BUTTON -->
+    <div class="blog-section">
+      <h3>📝 Blog</h3>
+      <p>Click the button below to update the URL:</p>
+      <button class="btn-blue" id="blogBtn">Open Blog</button>
     </div>
   </div>
 
@@ -212,31 +92,20 @@
   </footer>
 
   <script>
-    const firstDropdown = document.getElementById("firstDropdown");
-    const secondDropdown = document.getElementById("secondDropdown");
+    const blogBtn = document.getElementById("blogBtn");
 
-    firstDropdown.addEventListener("change", function () {
-      secondDropdown.innerHTML = '<option value="">-- Select Action --</option>';
+    blogBtn.addEventListener("click", () => {
+      const newUrl = window.location.pathname + "/blog";
+      window.history.pushState({}, "", newUrl);
 
-      if (this.value === "1") {
-        secondDropdown.innerHTML += '<option value="about">Go to About</option>';
-        secondDropdown.style.display = "block";
-      } else if (this.value === "2") {
-        secondDropdown.innerHTML += '<option value="contact">Go to Contact</option>';
-        secondDropdown.style.display = "block";
-      } else {
-        secondDropdown.style.display = "none";
-      }
+      console.log("URL changed to:", window.location.href);
     });
 
-    secondDropdown.addEventListener("change", function () {
-      if (this.value === "about") {
-        window.location.href = "about.html";
-      } else if (this.value === "contact") {
-        window.location.href = "contact.html";
-      }
-    });
+    // Optional: detect /blog on refresh
+    if (window.location.pathname.endsWith("/blog")) {
+      console.log("Blog route active");
+    }
   </script>
-</body>
 
+</body>
 </html>
