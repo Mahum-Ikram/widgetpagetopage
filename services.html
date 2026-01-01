@@ -6,10 +6,11 @@
   <script type="text/javascript" async id="zeacon-sdk"
     src="https://licencetotest.com/sdk/correlator.js?api-key=c0988d6d-b45f-48f0-869a-54a4720eb41e"></script>
   <!-- End of Zeacon Code -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services - Demo Site</title>
-  <link rel="stylesheet" href="styles.css">
+
   <style>
     body {
       margin: 0;
@@ -42,7 +43,6 @@
       padding: 15px;
     }
 
-    /* Table Styling */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -61,7 +61,6 @@
       color: white;
     }
 
-    /* Buttons */
     button {
       padding: 10px 15px;
       border: none;
@@ -83,7 +82,6 @@
       background: #e74c3c;
     }
 
-    /* Bar graph container */
     .bar-graph {
       display: flex;
       align-items: flex-end;
@@ -101,16 +99,7 @@
       border-radius: 5px;
     }
 
-    /* Responsive Design */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      h2 {
-        font-size: 1.2rem;
-      }
-
       table,
       thead,
       tbody,
@@ -135,34 +124,6 @@
       td {
         display: flex;
         justify-content: space-between;
-        padding: 8px;
-        text-align: left;
-      }
-
-      td::before {
-        font-weight: bold;
-        color: #333;
-      }
-
-      td:nth-of-type(1)::before {
-        content: "Plan: ";
-      }
-
-      td:nth-of-type(2)::before {
-        content: "Features: ";
-      }
-
-      td:nth-of-type(3)::before {
-        content: "Price: ";
-      }
-
-      .bar-graph {
-        height: 150px;
-        gap: 10px;
-      }
-
-      .bar-graph div {
-        width: 25px;
       }
     }
   </style>
@@ -223,20 +184,27 @@
     </select>
 
     <h3 style="margin-top:30px;">🎯 Buttons Demo</h3>
-    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
       <button class="btn-green">Get Started</button>
       <button class="btn-blue">Learn More</button>
       <button class="btn-red">Contact Sales</button>
     </div>
 
+    <!-- ✅ BLOG LINK SECTION -->
+    <h3 style="margin-top:30px;">📝 Blog</h3>
+    <p>Read our latest article:</p>
+
+    <a href="/blog/post-2">
+      <button class="btn-blue">Go to Blog Post 2</button>
+    </a>
+
     <h3 style="margin-top:30px;">📈 Dummy Graph</h3>
     <div class="bar-graph">
-      <div style="height: 50px; background:#1abc9c;"></div>
-      <div style="height: 120px; background:#3498db;"></div>
-      <div style="height: 80px; background:#9b59b6;"></div>
-      <div style="height: 160px; background:#e67e22;"></div>
+      <div style="height:50px; background:#1abc9c;"></div>
+      <div style="height:120px; background:#3498db;"></div>
+      <div style="height:80px; background:#9b59b6;"></div>
+      <div style="height:160px; background:#e67e22;"></div>
     </div>
-    <p style="margin-top:10px;">(Bar graph showing sample service usage)</p>
   </div>
 
   <footer>
@@ -251,16 +219,10 @@
       secondDropdown.innerHTML = '<option value="">-- Select Action --</option>';
 
       if (this.value === "1") {
-        let opt = document.createElement("option");
-        opt.value = "about";
-        opt.text = "Go to About";
-        secondDropdown.appendChild(opt);
+        secondDropdown.innerHTML += '<option value="about">Go to About</option>';
         secondDropdown.style.display = "block";
       } else if (this.value === "2") {
-        let opt = document.createElement("option");
-        opt.value = "contact";
-        opt.text = "Go to Contact";
-        secondDropdown.appendChild(opt);
+        secondDropdown.innerHTML += '<option value="contact">Go to Contact</option>';
         secondDropdown.style.display = "block";
       } else {
         secondDropdown.style.display = "none";
