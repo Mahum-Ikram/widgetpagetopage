@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Phone & Email Event Testing</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .test-case {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .test-case strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .negative {
+            color: #555;
+            font-weight: bold;
+        }
+
+        code {
+            display: block;
+            margin-top: 8px;
+            padding: 8px;
+            background: #eee;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Phone & Email Event Testing</h1>
+
+    <p class="description">
+        Use this page to test PHONE_LINK_CLICKED and EMAIL_LINK_CLICKED events.
+        Click each link and verify the corresponding event and value in New Relic.
+    </p>
+
+
+    <!-- ========================================================= -->
+    <!-- PHONE TESTS -->
+    <!-- ========================================================= -->
+
+    <div class="section">
+
+        <h2>📞 Phone Link Tests</h2>
+
+        <!-- 1 -->
+        <div class="test-case">
+            <strong>1. Basic Phone Number</strong>
+
+            <a href="tel:+923001234567">
+                +92 300 1234567
+            </a>
+
+            <code>
+                tel:+923001234567
+            </code>
+        </div>
+
+
+        <!-- 2 -->
+        <div class="test-case">
+            <strong>2. Phone Number with Spaces</strong>
+
+            <a href="tel:+923001234567">
+                +92 300 123 4567
+            </a>
+
+            <code>
+                tel:+923001234567
+            </code>
+        </div>
+
+
+        <!-- 3 -->
+        <div class="test-case">
+            <strong>3. Phone Number with Hyphens</strong>
+
+            <a href="tel:+923001234567">
+                +92-300-123-4567
+            </a>
+
+            <code>
+                tel:+923001234567
+            </code>
+        </div>
+
+
+        <!-- 4 -->
+        <div class="test-case">
+            <strong>4. Phone Number with Parentheses</strong>
+
+            <a href="tel:+15551234567">
+                +1 (555) 123-4567
+            </a>
+
+            <code>
+                tel:+15551234567
+            </code>
+        </div>
+
+
+        <!-- 5 -->
+        <div class="test-case">
+            <strong>5. International Phone Number</strong>
+
+            <a href="tel:+442071234567">
+                +44 20 7123 4567
+            </a>
+
+            <code>
+                tel:+442071234567
+            </code>
+        </div>
+
+
+        <!-- 6 -->
+        <div class="test-case">
+            <strong>6. Local Phone Number</strong>
+
+            <a href="tel:03001234567">
+                0300 1234567
+            </a>
+
+            <code>
+                tel:03001234567
+            </code>
+        </div>
+
+
+        <!-- 7 -->
+        <div class="test-case">
+            <strong>7. Phone Link with Text Instead of Number</strong>
+
+            <a href="tel:+923001234567">
+                Call Us
+            </a>
+
+            <code>
+                Visible text: Call Us
+                | href: tel:+923001234567
+            </code>
+        </div>
+
+
+        <!-- 8 -->
+        <div class="test-case">
+            <strong>8. Phone Link with Nested Span</strong>
+
+            <a href="tel:+923001234567">
+                <span>📞 Call Customer Support</span>
+            </a>
+
+            <code>
+                &lt;a href="tel:+923001234567"&gt;
+                &lt;span&gt;Call Customer Support&lt;/span&gt;
+                &lt;/a&gt;
+            </code>
+        </div>
+
+
+        <!-- 9 -->
+        <div class="test-case">
+            <strong>9. Phone Link with Button</strong>
+
+            <a href="tel:+923001234567">
+                <button type="button">
+                    Call Us
+                </button>
+            </a>
+
+            <code>
+                Phone link containing a button
+            </code>
+        </div>
+
+
+        <!-- 10 -->
+        <div class="test-case">
+            <strong>10. Phone Link with Image</strong>
+
+            <a href="tel:+923001234567">
+                <span style="font-size: 30px;">📞</span>
+                Call Now
+            </a>
+
+            <code>
+                Phone link containing an icon
+            </code>
+        </div>
+
+
+        <!-- 11 -->
+        <div class="test-case">
+            <strong>11. Phone Number with Extension</strong>
+
+            <a href="tel:+923001234567;ext=123">
+                +92 300 1234567 Ext. 123
+            </a>
+
+            <code>
+                tel:+923001234567;ext=123
+            </code>
+        </div>
+
+
+        <!-- 12 -->
+        <div class="test-case">
+            <strong>12. Multiple Phone Numbers</strong>
+
+            <a href="tel:+923001111111">
+                +92 300 1111111
+            </a>
+
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+
+            <a href="tel:+923002222222">
+                +92 300 2222222
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- EMAIL TESTS -->
+    <!-- ========================================================= -->
+
+    <div class="section">
+
+        <h2>✉️ Email Link Tests</h2>
+
+        <!-- 13 -->
+        <div class="test-case">
+            <strong>13. Basic Email</strong>
+
+            <a href="mailto:test@example.com">
+                test@example.com
+            </a>
+
+            <code>
+                mailto:test@example.com
+            </code>
+        </div>
+
+
+        <!-- 14 -->
+        <div class="test-case">
+            <strong>14. Email with Display Text</strong>
+
+            <a href="mailto:support@example.com">
+                Contact Support
+            </a>
+
+            <code>
+                Visible text: Contact Support
+                | href: mailto:support@example.com
+            </code>
+        </div>
+
+
+        <!-- 15 -->
+        <div class="test-case">
+            <strong>15. Email with First and Last Name</strong>
+
+            <a href="mailto:john.doe@example.com">
+                John Doe
+            </a>
+
+            <code>
+                mailto:john.doe@example.com
+            </code>
+        </div>
+
+
+        <!-- 16 -->
+        <div class="test-case">
+            <strong>16. Email with Plus Addressing</strong>
+
+            <a href="mailto:test+qa@example.com">
+                test+qa@example.com
+            </a>
+
+            <code>
+                mailto:test+qa@example.com
+            </code>
+        </div>
+
+
+        <!-- 17 -->
+        <div class="test-case">
+            <strong>17. Email with Subdomain</strong>
+
+            <a href="mailto:support@mail.example.com">
+                support@mail.example.com
+            </a>
+
+            <code>
+                mailto:support@mail.example.com
+            </code>
+        </div>
+
+
+        <!-- 18 -->
+        <div class="test-case">
+            <strong>18. Email with Subject</strong>
+
+            <a href="mailto:support@example.com?subject=Test%20Email">
+                Email Support
+            </a>
+
+            <code>
+                mailto:support@example.com?subject=Test%20Email
+            </code>
+        </div>
+
+
+        <!-- 19 -->
+        <div class="test-case">
+            <strong>19. Email with Subject and Body</strong>
+
+            <a href="mailto:support@example.com?subject=QA%20Test&body=Testing%20EMAIL_LINK_CLICKED">
+                Send Test Email
+            </a>
+
+            <code>
+                mailto:support@example.com?subject=QA%20Test&body=Testing%20EMAIL_LINK_CLICKED
+            </code>
+        </div>
+
+
+        <!-- 20 -->
+        <div class="test-case">
+            <strong>20. Email Link with Nested Span</strong>
+
+            <a href="mailto:qa@example.com">
+                <span>✉️ Email QA Team</span>
+            </a>
+
+            <code>
+                &lt;a href="mailto:qa@example.com"&gt;
+                &lt;span&gt;Email QA Team&lt;/span&gt;
+                &lt;/a&gt;
+            </code>
+        </div>
+
+
+        <!-- 21 -->
+        <div class="test-case">
+            <strong>21. Email Link with Button</strong>
+
+            <a href="mailto:qa@example.com">
+                <button type="button">
+                    Email Us
+                </button>
+            </a>
+
+            <code>
+                Email link containing a button
+            </code>
+        </div>
+
+
+        <!-- 22 -->
+        <div class="test-case">
+            <strong>22. Multiple Email Addresses</strong>
+
+            <a href="mailto:sales@example.com">
+                sales@example.com
+            </a>
+
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+
+            <a href="mailto:support@example.com">
+                support@example.com
+            </a>
+
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+
+            <a href="mailto:info@example.com">
+                info@example.com
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- NEGATIVE TESTS -->
+    <!-- ========================================================= -->
+
+    <div class="section">
+
+        <h2>🚫 Negative Tests</h2>
+
+        <!-- 23 -->
+        <div class="test-case">
+            <strong>23. Plain Phone Number — NOT a Link</strong>
+
+            <p class="negative">
+                +92 300 1234567
+            </p>
+
+            <code>
+                Plain text only — no tel: href
+            </code>
+
+            <p>
+                Expected: No PHONE_LINK_CLICKED event
+            </p>
+        </div>
+
+
+        <!-- 24 -->
+        <div class="test-case">
+            <strong>24. Plain Email — NOT a Link</strong>
+
+            <p class="negative">
+                test@example.com
+            </p>
+
+            <code>
+                Plain text only — no mailto: href
+            </code>
+
+            <p>
+                Expected: No EMAIL_LINK_CLICKED event
+            </p>
+        </div>
+
+
+        <!-- 25 -->
+        <div class="test-case">
+            <strong>25. Normal Website Link</strong>
+
+            <a href="https://www.google.com">
+                Visit Website
+            </a>
+
+            <code>
+                https://www.google.com
+            </code>
+
+            <p>
+                Expected: No PHONE_LINK_CLICKED or EMAIL_LINK_CLICKED event
+            </p>
+        </div>
+
+
+        <!-- 26 -->
+        <div class="test-case">
+            <strong>26. Anchor Without Phone/Email Protocol</strong>
+
+            <a href="#contact">
+                Contact Section
+            </a>
+
+            <code>
+                href="#contact"
+            </code>
+
+            <p>
+                Expected: No PHONE_LINK_CLICKED or EMAIL_LINK_CLICKED event
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- RAPID / REPEATED CLICK TESTS -->
+    <!-- ========================================================= -->
+
+    <div class="section">
+
+        <h2>🔄 Repeated Click Tests</h2>
+
+        <div class="test-case">
+
+            <strong>27. Repeated Phone Click</strong>
+
+            <a href="tel:+923009999999">
+                Click Phone Multiple Times
+            </a>
+
+            <p>
+                Click the link 2–3 times and verify the expected number
+                of PHONE_LINK_CLICKED events.
+            </p>
+
+        </div>
+
+
+        <div class="test-case">
+
+            <strong>28. Repeated Email Click</strong>
+
+            <a href="mailto:repeated@example.com">
+                Click Email Multiple Times
+            </a>
+
+            <p>
+                Click the link 2–3 times and verify the expected number
+                of EMAIL_LINK_CLICKED events.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- FINAL TEST -->
+    <!-- ========================================================= -->
+
+    <div class="section">
+
+        <h2>✅ Expected Events</h2>
+
+        <p>
+            Phone links should generate:
+        </p>
+
+        <code>
+            PHONE_LINK_CLICKED
+        </code>
+
+        <p>
+            Email links should generate:
+        </p>
+
+        <code>
+            EMAIL_LINK_CLICKED
+        </code>
+
+        <p>
+            For every event, verify that the correct phone number or
+            email address is included in the New Relic event payload.
+        </p>
+
+    </div>
+
+</body>
+</html>
